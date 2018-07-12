@@ -1,5 +1,5 @@
 # Browser Task Manager/Daily Goals
-This is a Web Ap made with vanilla JavaScript that does exactly what the title says it does.
+This is a Web App made with vanilla JavaScript that does exactly what the title says it does.
 ## Instalation!
 ```
 1. Download or clone the repository.
