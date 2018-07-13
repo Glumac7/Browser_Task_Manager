@@ -94,6 +94,7 @@ i:hover
     display: inline;
 }
 
+#main-p:hover{text-decoration: line-through;}
 
 #display-content::-webkit-scrollbar
 {
@@ -104,4 +105,8 @@ i:hover
 #display-content::-webkit-scrollbar-thumb
 {
 	background-color: rgb(68, 172, 241);
+}
+#container
+{
+    height: 100px;
 }
