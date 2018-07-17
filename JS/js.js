@@ -36,21 +36,28 @@ let id = localStorage.length;
 
 function add_button_clicked()
 {
-    let white_line = document.getElementById('add-container-bottom');
-    white_line.style.display = "block";
-        
-    let content = document.getElementsByTagName('input')[0].value;
-    let setDiv = `<div data-id="${id}" id="display-content"><p onclick="delete_me(this), white_line_check()" id="main-p">${content}</p></div>`;
-
-    localStorage.setItem(id, setDiv);
-    document.getElementById('adding').innerHTML += localStorage.getItem(id);
+    if(document.getElementsByTagName('input')[0].value == "")
+    {}
     
-    document.getElementsByTagName('input')[0].value = "";
-    document.getElementsByTagName('input')[0].focus();
+    else
+    {
+        let white_line = document.getElementById('add-container-bottom');
+        white_line.style.display = "block";
 
-    localStorage.setItem('id', id);
+        let content = document.getElementsByTagName('input')[0].value;
+        let setDiv = `<div data-id="${id}" id="display-content"><p onclick="delete_me(this), white_line_check()" id="main-p">${content}</p></div>`;
 
-    id++;
+        localStorage.setItem(id, setDiv);
+        document.getElementById('adding').innerHTML += localStorage.getItem(id);
+        
+        document.getElementsByTagName('input')[0].value = "";
+        document.getElementsByTagName('input')[0].focus();
+
+        localStorage.setItem('id', id);
+
+        id++;
+    }
+    
 } 
 
 function white_line_check()
