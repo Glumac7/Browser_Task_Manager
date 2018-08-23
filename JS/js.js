@@ -98,3 +98,6 @@ function keydown(e)
         add_button_clicked();
     }
 }
+
+/*Preloader*/
+function preloader(){document.getElementById('spinner-container').style.display = "none"; document.querySelector("MAIN").style.display = "flex";}
