@@ -8,11 +8,19 @@
         <link rel="stylesheet" href="CSS/reset.css">
         <link rel="stylesheet" href="CSS/main.css">
     </head>
-    <body>
-        <img src="background.jpg" alt="asd">
-        <div id="background"></div>
+    <body onload="preloader()">
+        <!--Preloader-->
+        <div id="spinner-container">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+
         <!--MAIN CONTENT-->
         <main>
+            <img src="background.jpg" alt="asd">
+            <div id="background"></div>
             <div id="main-container">
                 <!--GOAL ADDING FIELD!-->
                 <div id="adding" class="container row">

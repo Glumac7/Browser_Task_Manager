@@ -6,3 +6,5 @@ This is a Web App made with vanilla JavaScript that does exactly what the title 
 2. Start the "index.html" file with your web browser of choice.
 3. Enjoy!!!
 ```
+##Web Hoasted!
+This Web App is also hosted at URL: https://browser-task-manager.firebaseapp.com
