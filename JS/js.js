@@ -82,21 +82,12 @@ function delete_me(clicked_goal)
 function keydown(e)
 {
     let keynum;
-    
-<<<<<<< HEAD
     if(window.event) keynum = e.keyCode;
 
     else if(e.which) keynum = e.which;
     
     if(keynum == 13) add_button_clicked();
 }
-=======
-    if(keynum == 13)
-    {
-        add_button_clicked();
-    }
-}
 
 /*Preloader*/
 function preloader(){document.getElementById('spinner-container').style.display = "none"; document.querySelector("MAIN").style.display = "flex";}
->>>>>>> 810087aa71a49c3ba64ef0843c0a949ae819c5e2
