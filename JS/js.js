@@ -55,7 +55,6 @@ function add_button_clicked()
 
         id++;
     }
-    
 } 
 
 function white_line_check()
@@ -74,6 +73,7 @@ function white_line_check()
 
 function delete_me(clicked_goal)
 {
+    clicked_goal.parentElement.classList.add("puff-out-center");
     clicked_goal.parentElement.style.display = "none";
     let goal_container = clicked_goal.parentElement.getAttribute('data-id');
     localStorage.removeItem(goal_container);
@@ -90,4 +90,12 @@ function keydown(e)
 }
 
 /*Preloader*/
-function preloader(){document.getElementById('spinner-container').style.display = "none"; document.querySelector("MAIN").style.display = "flex";}
+function preloader() {
+    document.getElementById('spinner-container').classList.add("fade-out");
+    setTimeout(() =>
+    {
+        document.getElementById('spinner-container').style.display = "none";
+        document.querySelector("MAIN").classList.add("puff-in-center");
+    }, 700);
+    document.querySelector("MAIN").style.display = "flex";
+}
