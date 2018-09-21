@@ -37,9 +37,6 @@
     }
   }
 
-
-
-
 .fade-out {
 	-webkit-animation: fade-out 1s ease-out both;
 	        animation: fade-out 1s ease-out both;
@@ -103,44 +100,60 @@
   }
   
 /*****************************************/
-body {
-    overflow: hidden;
+/*SCROLBAR!*/
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-img
-{
-    position: fixed;
-    width: 100%;
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(68, 172, 241);
+}
+/*****************************************/
+body, html {
+    overflow-x: hidden;
     height: 100%;
 }
 
-#background
-{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.35);
-}
 main
 {
     position: relative;
-    display: flex;
+    display: none;
     width: 100%;
     height: 100%;
+}
+
+#background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("../background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #main-container
 {
-    position: relative;
-    margin: auto;
+  position: relative;
+  margin: auto;
+  width: auto; 
 }
+
+#adding {
+  width: 650px;
+  margin: 0;
+}
+
+
 .container
 {
     width: 650px;
-}
-main
-{
-    display: none;
 }
 
 #add-container
@@ -271,3 +284,20 @@ i:hover
       -webkit-transform: scale(1.0);
     }
   }
+
+@media (max-width: 576px)
+{
+  main {overflow-y: scroll;}
+  #background {
+    position: fixed !important;
+  }
+  #adding {
+    width: 100%;
+  }
+  #display-content, input, #add-container {
+    height: 75px;
+  }
+  i {
+    font-size: 25px;
+  }
+}

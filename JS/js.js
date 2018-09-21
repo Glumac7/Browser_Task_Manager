@@ -95,7 +95,7 @@ function preloader() {
     setTimeout(() =>
     {
         document.getElementById('spinner-container').style.display = "none";
-        document.querySelector("MAIN").classList.add("puff-in-center");
+        document.querySelector("body").classList.add("puff-in-center");
     }, 700);
     document.querySelector("MAIN").style.display = "flex";
 }
