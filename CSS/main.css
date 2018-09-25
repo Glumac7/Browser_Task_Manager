@@ -15,6 +15,10 @@
     -webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
             animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
+  .fade-out-top {
+    -webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
+            animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
+  }
 }
 
 @-webkit-keyframes puff-in-center {
@@ -246,6 +250,7 @@ i:hover
     height: 100px;
     display: flex;
     overflow-x: auto;
+    transition: all .3s;
 }
 #main-p
 {
@@ -253,6 +258,7 @@ i:hover
     font-family: sans-serif;
     font-size: 27px;
     display: inline;
+    transition: all .3s;
 }
 
 #main-p:hover{text-decoration: line-through;}
