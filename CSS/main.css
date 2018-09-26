@@ -15,9 +15,20 @@
     -webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
             animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
+
   .fade-out-top {
     -webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
             animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
+  }
+
+  .fade-in-height {
+    animation: fade-in-height .3s;
+    animation-fill-mode: forwards;
+  }
+  
+  .fade-out-height {
+    animation: fade-out-height .3s;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -136,6 +147,26 @@
       opacity: 0;
     }
   }
+
+ @keyframes fade-out-height {
+   100%{
+     height: 0px;
+     opacity: 0;
+     border: none;
+   }
+ }
+
+ @keyframes fade-in-height {
+  0%{
+    height: 0px;
+    opacity: 0;
+  }
+
+  100%{
+    height: 100px;
+    opacity: 1;
+  }
+ }
 /*****************************************/
 /*SCROLBAR!*/
 body main::-webkit-scrollbar-track {
@@ -208,7 +239,7 @@ main
 
 #add-container-bottom
 {
-    display: none;
+  display: block;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.75);
     border-bottom: 0;
@@ -248,10 +279,12 @@ i:hover
     font-size: 27px;
     width: 100%;
     height: 100px;
+    transform:translate(0);
     display: flex;
     overflow-x: auto;
     transition: all .3s;
 }
+
 #main-p
 {
     margin: auto;

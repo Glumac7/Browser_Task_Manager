@@ -33,59 +33,72 @@ var id = 0; //Putting the length of the localStorage in the variable "id"!
 
 function add_button_clicked()
 {
-        if(document.getElementsByTagName('input')[0].value == "") //If the input field is empty, do not add that as a goal!
-        {}
-        else //If there is some content in the input field, add it to the goals list!
-        {
-            let content = document.getElementsByTagName('input')[0].value; //Setting the value of the input field to the variable "content"!
-            let setDiv = 
-            `<div data-id="${id}" id="display-content" class="display-content-${id}">
-                <p onclick="delete_me(this)" id="main-p">${content}</p>
-            </div>`; // Setting the element that needs to be added to the variable "setDiv"!
-        
-            localStorage.setItem(id, setDiv); //Set the local storage item with the id of "id" to "setDiv"...
-            document.getElementById('adding').innerHTML += setDiv; //...add that item to the HTML!
+    if(document.getElementsByTagName('input')[0].value == "") //If the input field is empty, do not add that as a goal!
+    {}
+    else //If there is some content in the input field, add it to the goals list!
+    {
+        let content = document.getElementsByTagName('input')[0].value; //Setting the value of the input field to the variable "content"!
+        let setDiv = 
+        `<div data-id="${id}" id="display-content" class="display-content-${id}">
+            <p onclick="delete_me(this)" id="main-p">${content}</p>
+        </div>`; // Setting the element that needs to be added to the variable "setDiv"!
+    
+        localStorage.setItem(id, setDiv); //Set the local storage item with the id of "id" to "setDiv".
 
-            white_line_check();
-            
-            $(".display-content-"+id).addClass("fade-in-top");
-            setTimeout(() =>{
-                $(".display-content-"+id).removeClass("fade-in-top");
-                
-                document.getElementsByTagName('input')[0].focus(); //After the animation finishes, focus on the input feald...
-                document.getElementsByTagName('input')[0].value = ""; //...and set it's value to an empty string!
-                id++; //Increase the localStorage length by 1 each time the user adds a new goal!
-            },300);
-            
-        }//2 4 6 3 1
+        if(localStorage.length == 1) //If the "setDiv" element is the first element in the app, add a white line with animation!
+        {
+            document.getElementById('add-container-bottom').style.display = "block";
+            document.getElementById('add-container-bottom').classList.add("fade-in-height");
+            setTimeout(() =>{document.getElementById('add-container-bottom').classList.remove("fade-in-height");}, 300);
+        }
+
+        document.getElementById('adding').innerHTML += setDiv; //Add the "setDive" item to the HTML!
+        
+        $(".display-content-"+id).addClass("fade-in-height");
+
+        setTimeout(() =>{   
+            $(".display-content-"+id).css({height: "100px"});
+            $(".display-content-"+id).removeClass("fade-in-height");
+            document.getElementsByTagName('input')[0].focus(); //After the animation finishes, focus on the input feald...
+            document.getElementsByTagName('input')[0].value = ""; //...and set it's value to an empty string!
+            id++; //Increase the localStorage length by 1 each time the user adds a new goal!
+        },300);
+    }
 }
 
 function white_line_check()
 {
-        if(localStorage.length < 1)
-        {
-            let white_line = document.getElementById('add-container-bottom');
+    if(localStorage.length < 1)
+    {
+        let white_line = document.getElementById('add-container-bottom');
+        white_line.classList.add("fade-out-height");
+        
+        setTimeout(() =>{
+            white_line.classList.remove("fade-out-height");
             white_line.style.display = "none";
-        }
-        else
-        {
-            let white_line = document.getElementById('add-container-bottom');
-            white_line.style.display = "block";
-        }
+        }, 300);
+    }
+    else
+    {
+        let white_line = document.getElementById('add-container-bottom');
+        white_line.style.display = "block";
+    }
 }
 
 function delete_me(clicked_goal)
 {
-
     clicked_goal = clicked_goal.parentNode; //The goal that was clicked is a text. We need to remove the whole element, so this changes the variables content from the text to the whole element!
 
-    clicked_goal.classList.add("fade-out-top");
-
-    clicked_goal.parentNode.removeChild(clicked_goal); //Removes the whole node from the DOM when the user clicks on the text!
+    clicked_goal.classList.add("fade-out-height");
 
     let goal_container = clicked_goal.getAttribute('data-id'); //Sets the varibale "goal_container" to the 'data-id''s value form the clicked goal.
     localStorage.removeItem(goal_container); //Removes an item from the localStorage with the 'data-id' from the element that was clicked!
+
     white_line_check();
+
+    setTimeout(() =>{
+        clicked_goal.parentNode.removeChild(clicked_goal); //Removes the whole node from the DOM when the user clicks on the text!
+    },300);
 }
 
 function keydown(e) //This function checks to see if a user has clicked the 'enter' button on the keyboard, and adds an element if so(it add's it using the 'add_button_clicked()' function)! 
