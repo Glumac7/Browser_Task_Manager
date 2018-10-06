@@ -57,7 +57,7 @@ function add_button_clicked()
         $(".display-content-"+id).addClass("fade-in-height");
 
         setTimeout(() =>{   
-            $(".display-content-"+id).css({height: "100px"});
+            if(document.body.offsetWidth >= 576) $(".display-content-"+id).css({height: "100px"});
             $(".display-content-"+id).removeClass("fade-in-height");
             document.getElementsByTagName('input')[0].focus(); //After the animation finishes, focus on the input feald...
             document.getElementsByTagName('input')[0].value = ""; //...and set it's value to an empty string!
