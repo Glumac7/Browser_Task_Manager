@@ -2,6 +2,9 @@ var id = 0; //Putting the length of the localStorage in the variable "id"!
 
 (function onload()
 {
+
+    document.getElementById("background").style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?wallpapers')";
+
     var arr = [];
     document.getElementById('add-container').focus();
 
